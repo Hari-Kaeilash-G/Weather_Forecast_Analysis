@@ -1,0 +1,27 @@
+step,rows_before,rows_after,rows_affected,note
+NOAA date: YYYYMMDD number to date,137187,137187,137187,0 failed (a bad date would raise an error)
+Open-Meteo time: text to datetime,105192,105192,105192,0 failed
+Number strings check,137187,137187,0,"NOAA value is int64, forecasts are float64: no numbers stored as text"
+"Spelling and case (city, element)",137187,137187,0,0 values changed
+Units: tenths to deg C and mm,4535,4535,4535,"value / 10, rows converted"
+Station and grid point are the same place,3,3,0,"rule: under 10 km, 3 of 3 matched"
+NOAA: keep project window,137187,10385,126802,2022-06-01 to 2025-08-31
+Open-Meteo: keep project window,105192,85608,19584,one extra day before start
+NOAA: drop rows failing quality check,10385,10385,0,q_flag not blank
+NOAA: keep TMAX and PRCP,10385,4535,5850,other elements not used
+NOAA: drop -9999 codes,4535,4535,0,GHCN missing code
+NOAA: drop exact duplicates,4535,4535,0,rule: all columns equal
+NOAA: drop duplicate key,4535,4535,0,rule: key city+date+element
+Open-Meteo: drop exact duplicates,85608,85608,0,rule: all columns equal
+Open-Meteo: drop duplicate key,85608,85608,0,rule: key city+time
+Rebuild full calendar,3145,3564,419,gap days added as NaN
+TMAX table: cut days after end of station record,3564,3542,22,station record stops before the window end
+Rain table: cut days after end of station record,1770,1743,27,station record stops before the window end
+TMAX table: drop days with any missing forecast lead,3542,3461,81,"same days kept for all 7 leads, API gap, not imputed"
+Rain table: drop days with any missing forecast lead,1743,1722,21,"same days kept for all 7 leads, API gap, not imputed"
+"Missing-value test, PRCP",1722,1722,0,"logistic regression, LR p = 8.308e-107"
+"Missing-value test, TMAX",3461,3461,0,"logistic regression, LR p = 7.378e-33"
+TMAX: delete days without station value,3461,2788,673,"no imputation, station TMAX is the truth"
+Rain: delete days without station value,1722,822,900,"no imputation, station PRCP is the truth"
+"TMAX outliers: delete errors, keep real",2788,2787,1,"MAD on month anomaly, real values kept"
+Rain: delete impossible rain (> 500 mm/day),822,822,0,"heavy rain kept, not capped"

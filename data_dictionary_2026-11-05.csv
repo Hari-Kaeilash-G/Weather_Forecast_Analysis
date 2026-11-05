@@ -1,0 +1,26 @@
+table,column,dtype,unit,source,allowed_range,observed_min,observed_max
+temperature,city,object,-,added by us,"Kolkata, Thiruvananthapuram, Visakhapatnam",,
+temperature,date,datetime64[ns],date,calendar rebuilt by us,2022-06-01 to 2025-08-31,2022-06-01 00:00:00,2025-08-24 00:00:00
+temperature,year,int32,year,derived from date,2022 to 2025,2022,2025
+temperature,month,int32,month number,derived from date,1 to 12,1,12
+temperature,TMAX,float64,deg C,NOAA GHCN-Daily (tenths / 10),15 to 50,20.8,44.6
+temperature,fc_tmax_lead1,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,20.7,46.2
+temperature,fc_tmax_lead2,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,21.7,46.5
+temperature,fc_tmax_lead3,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,22.4,47.2
+temperature,fc_tmax_lead4,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,21.3,47.0
+temperature,fc_tmax_lead5,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,22.6,47.1
+temperature,fc_tmax_lead6,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,20.7,47.0
+temperature,fc_tmax_lead7,float64,deg C,"Open-Meteo Previous Runs, gfs_seamless, highest hour of the day",15 to 50,20.8,47.7
+rain,city,object,-,added by us,"Kolkata, Thiruvananthapuram, Visakhapatnam",,
+rain,date,datetime64[ns],date,calendar rebuilt by us,2024-01-20 to 2025-08-31,2024-01-27 00:00:00,2025-08-24 00:00:00
+rain,year,int32,year,derived from date,2024 to 2025,2024,2025
+rain,month,int32,month number,derived from date,1 to 12,1,12
+rain,PRCP,float64,mm per day (08:30 to 08:30 IST),NOAA GHCN-Daily (tenths / 10),0 to 500,0.0,132.1
+rain,obs_status,object,-,derived from PRCP,"recorded_zero, recorded_wet",,
+rain,fc_rain_lead1,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,165.7
+rain,fc_rain_lead2,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,237.4
+rain,fc_rain_lead3,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,217.3
+rain,fc_rain_lead4,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,249.4
+rain,fc_rain_lead5,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,71.1
+rain,fc_rain_lead6,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,66.6
+rain,fc_rain_lead7,float64,mm per day (09:00 to 08:00 stamps),"Open-Meteo Previous Runs, gfs_seamless, sum of 24 hours",0 to 500,0.0,108.9
